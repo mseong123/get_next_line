@@ -6,13 +6,13 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 09:49:25 by melee             #+#    #+#             */
-/*   Updated: 2023/05/10 17:36:09 by melee            ###   ########.fr       */
+/*   Updated: 2023/05/10 18:35:12 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFFER_SIZE 4
+# define BUFFER_SIZE 50000
 
 #include <unistd.h>
 #include <fcntl.h>

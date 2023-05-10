@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 09:51:43 by melee             #+#    #+#             */
-/*   Updated: 2023/05/10 18:27:42 by melee            ###   ########.fr       */
+/*   Updated: 2023/05/10 18:33:53 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ char	*parse_return_line(char *line)
 	if (i != -1)
 	{
 		res = ft_substr(line, 0, i+1);
-		printf("line string %s\n",line);
+		//printf("line string %s\n",line);
 		line = line + i + 1;
 
-		printf("line string2 %s\n",line);
+		//printf("line string2 %s\n",line);
 		return (res);
 	}
 	else
@@ -88,17 +88,18 @@ char	*get_next_line(int fd)
 		if (!line)
 			return (NULL);
 		ft_memset(line, '\0', 1);
+		line = read_file(fd, line);
 	}
-	i = check_endline_index(line)
-	if (i == -1)
+	index = check_endline_index(line);
+	if (index == -1)
 	{
 		line = read_file(fd, line);
-		i = check_endline_index(line);
+		index = check_endline_index(line);
 	}
-	if (line=="" || line == NULL)
+	if (*line=='\0' || line == NULL)
 		return (NULL);
 	res = parse_return_line(line);
-	line += i+1;
+	line += index+1;
 
 	return (res);
 }
@@ -112,6 +113,7 @@ int	main(void)
 	int	fd = open("ms.txt", O_RDONLY);
 	char *str;
 	
+	printf("first result\n");
 	str = get_next_line(fd);
 	while (str && *str)
 	{
@@ -120,6 +122,16 @@ int	main(void)
 		printf("%c",*str);
 		str++;
 	}
+	str = get_next_line(fd);
+	printf("second result\n");
+	while (str && *str)
+	{
+		if (*str == '\n')
+			printf("\\n");
+		printf("%c",*str);
+		str++;
+	}
+
 }
 
 

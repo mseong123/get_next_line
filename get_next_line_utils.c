@@ -49,6 +49,29 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (str);
 }
 
+char	*ft_strchr(const char *s, int c)
+{
+	char	*str;
+	char	d;
+	int		len;
+
+	str = (char *)s;
+	d = (char)(c);
+	len = ft_strlen(str);
+	if (d == '\0' && len > 0)
+		return (str + len);
+	if (d == '\0' && len == 0)
+		return (str);
+	while (*str != '\0')
+	{
+		if (*str == d)
+			return (str);
+		str++;
+	}
+	return (NULL);
+}
+
+
 void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t			i;

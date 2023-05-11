@@ -22,6 +22,20 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
+int	check_endline_index(char *str)
+{
+	int	i;
+
+	i = 0;
+	while(str[i])
+	{
+		if(str[i] == '\n')
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
@@ -48,29 +62,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
-
-char	*ft_strchr(const char *s, int c)
-{
-	char	*str;
-	char	d;
-	int		len;
-
-	str = (char *)s;
-	d = (char)(c);
-	len = ft_strlen(str);
-	if (d == '\0' && len > 0)
-		return (str + len);
-	if (d == '\0' && len == 0)
-		return (str);
-	while (*str != '\0')
-	{
-		if (*str == d)
-			return (str);
-		str++;
-	}
-	return (NULL);
-}
-
 
 void	*ft_memset(void *b, int c, size_t len)
 {

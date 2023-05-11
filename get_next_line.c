@@ -21,22 +21,6 @@ char	*free_join(char *line, char* buffer)
 	return (joined);
 }
 
-
-
-int	check_endline_index(char *str)
-{
-	int	i;
-
-	i = 0;
-	while(str[i])
-	{
-		if(str[i] == '\n')
-			return (i);
-		i++;
-	}
-	return (-1);
-}
-
 char	*parse_next_line(char *line)
 {
 	char	*res;

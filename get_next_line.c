@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 09:51:43 by melee             #+#    #+#             */
-/*   Updated: 2023/05/11 17:53:52 by melee            ###   ########.fr       */
+/*   Updated: 2023/05/11 18:37:54 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ char	*read_file(int fd, char *line)
 	if (!buffer)
 		return (NULL);
 	read_status = 1;
-
-	//printf("line ptr BUFFER [%p]\n", buffer);
 	while (read_status > 0)	
 	{
 		ft_memset(buffer, '\0', BUFFER_SIZE + 1);
@@ -86,16 +84,11 @@ char	*read_file(int fd, char *line)
 			free(buffer);
 			return (NULL);
 		}
-		//if (read_status>0)
-			line = free_join(line, buffer);
-//	printf("TOTAL LINE %s\n",line);	
-//	printf("line ptr LINE [%p]\n", line);
-
+		line = free_join(line, buffer);
 		if (check_endline_index(line) != -1)
 			break;
 	}
 	free(buffer);
-	
 	return (line);
 }
 
@@ -106,7 +99,6 @@ char	*get_next_line(int fd)
 
 	if (fd == -1 || read(fd, NULL, 0) < 0)
 		return (NULL);
-
 	if	(!line)
 	{
 		line = malloc(1 * sizeof(char));
@@ -114,18 +106,11 @@ char	*get_next_line(int fd)
 			return (NULL);
 		ft_memset(line, '\0', 1);
 	}
-
-	//printf("line ptr START LINE [%p]\n", line);
-	//printf("string = %s\n",line);
 	line = read_file(fd, line);
-
 	if (line == NULL)
 		return (NULL);
 	res = parse_result(line);	
 	line = parse_next_line(line);	
-	//printf("line ptr END2 LINE [%p]\n", line);
-	
-	
 	return (res);
 }
 

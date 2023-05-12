@@ -6,12 +6,11 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 09:51:43 by melee             #+#    #+#             */
-/*   Updated: 2023/05/11 18:37:54 by melee            ###   ########.fr       */
+/*   Updated: 2023/05/12 11:18:46 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 char	*free_join(char *line, char* buffer)
 {
@@ -63,9 +62,6 @@ char	*parse_result(char *line)
 
 }
 
-
-/* read only the minimum times each time read_file is called, stop whenever buffer has a \n.
- */
 char	*read_file(int fd, char *line)
 {	
 	char	*buffer;
@@ -113,10 +109,9 @@ char	*get_next_line(int fd)
 	line = parse_next_line(line);	
 	return (res);
 }
-
-
 /*
 #include <stdio.h>
+#include <fcntl.h>
 
 int	main(void)
 {
@@ -125,25 +120,7 @@ int	main(void)
 	
 	str = get_next_line(fd);
 	printf("%s",str);	
-str = get_next_line(fd);
-
+	str = get_next_line(fd);
 	printf("%s",str);	
-	}
+}
 */
-
-
-
-
-
-
-/*
-while (str && *str)
-	{	 
-		if (*str == '\n')
-			printf("\\n");
-		printf("%c",*str);
-		str++;
-	}
-*/
-
-

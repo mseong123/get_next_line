@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 12:49:26 by melee             #+#    #+#             */
-/*   Updated: 2023/05/12 11:08:32 by melee            ###   ########.fr       */
+/*   Updated: 2023/05/12 11:33:14 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	check_endline_index(char *str)
 	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
-		if(str[i] == '\n')
+		if (str[i] == '\n')
 			return (i);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 09:49:25 by melee             #+#    #+#             */
-/*   Updated: 2023/05/11 09:20:34 by melee            ###   ########.fr       */
+/*   Updated: 2023/05/12 11:32:26 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 void	*ft_memset(void *b, int c, size_t len);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *s);
-int	    check_endline_index(char *str);
+int		check_endline_index(char *str);
 
 #endif
